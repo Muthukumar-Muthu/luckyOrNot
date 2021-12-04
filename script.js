@@ -3,12 +3,15 @@ const number = document.getElementById("number");
 const check = document.getElementById("check");
 const result = document.getElementById("result");
 const showData = document.createElement("H1");
+const img = document.createElement("IMG");
 
 check.addEventListener("click", checkLucky);
 number.addEventListener("focusout", checkNumber);
 number.addEventListener("focusin", enable);
 
 function checkLucky() {
+    showData.innerText = "";
+
     let ans = "";
     checkNumber();
     let n = Number.parseInt(number.value);
@@ -44,11 +47,16 @@ function enable() {
 function show(data) {
     showData.innerText = "";
     let t = "";
+    let src = "";
     if (data == 1) {
         t = "You are lucky";
+        src = "RecentHighCreature.gif";
     } else {
         t = "You are not lucky";
+        src = "bad-luck-host.gif";
     }
+    img.setAttribute("src", src);
+    result.append(img);
     const text = document.createTextNode(t);
     showData.append(text);
     result.append(showData);
