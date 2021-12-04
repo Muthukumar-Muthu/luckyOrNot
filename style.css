@@ -78,6 +78,7 @@ i:hover {
 
 h1 {
     color: #e66465;
+    padding: 10px;
 }
 
 input[type="number"] {
